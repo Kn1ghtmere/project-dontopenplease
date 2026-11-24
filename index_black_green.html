@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMART RESULT PRO | Academic Management</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+:root{--bg:#fff;--surface:#f7f7f7;--surface-soft:#f3f3f3;--ink:#2b2b2b;--charcoal:#0f1110;--muted:#6b6b6b;--line:#d9d9d9;--accent:#1e7b4f;--accent-dark:#155c3a;--accent-soft:#e1f0e7;--rose:#6fcf97;--danger:#a33e42;--danger-soft:#f9e9e8;--serif:Cambria,'Noto Serif',Georgia,serif;--sans:Calibri,'Source Sans 3',Carlito,Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px var(--sans);line-height:1.5}button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--accent);border-radius:2px;padding:10px 18px;background:var(--accent);color:#fff;font-weight:700;letter-spacing:.01em;transition:background .18s,border-color .18s}button:hover{background:var(--accent-dark);border-color:var(--accent-dark)}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--rose);outline-offset:2px}button.secondary{background:#fff;border-color:var(--charcoal);color:var(--charcoal)}button.secondary:hover{background:var(--charcoal);border-color:var(--charcoal);color:#fff}button.danger{background:#fff;border-color:var(--danger);color:var(--danger)}button.danger:hover{background:var(--danger-soft)}
+input,select{width:100%;padding:11px 12px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:2px;outline:none;transition:border-color .15s,box-shadow .15s}input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(30,123,79,.14)}label{display:block;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:12px 0 6px}
+.app{display:grid;grid-template-columns:252px minmax(0,1fr);min-height:100vh}.side{background:var(--charcoal);color:#e6e6e6;padding:28px 18px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}.brand{font:700 15px var(--serif);color:#fff;letter-spacing:0;padding:8px 6px;white-space:nowrap}.brand:before{content:'\201C';display:inline-grid;place-items:center;width:32px;height:32px;margin-right:10px;border-radius:0;background:var(--accent);color:#fff;font:700 38px/1 var(--serif);vertical-align:middle;padding-top:14px;overflow:hidden}.brand small{display:block;color:var(--rose);font:700 9px var(--sans);letter-spacing:.24em;margin:8px 0 0 48px}nav{margin-top:38px;display:grid;gap:3px}nav button{display:flex;align-items:center;width:100%;text-align:left;background:transparent;border:0;border-left:3px solid transparent;color:#b9bcc0;margin:0;padding:11px 13px;border-radius:0;font-weight:600}nav button.active,nav button:hover{background:#1b1f1d;border-left-color:var(--rose);color:#fff}.side .notice{margin-top:auto;background:transparent;border:0;border-top:1px solid #2a302d;border-radius:0;color:#9a9ea3;font-size:11px;line-height:1.55;padding:14px 4px 0}
+main{padding:36px clamp(20px,4vw,58px) 26px;max-width:1600px;width:100%;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:20px;border-bottom:2px solid var(--charcoal)}.top>div:first-child:before{content:'SMART RESULT PRO';display:block;color:var(--accent);font:700 10px var(--sans);letter-spacing:.24em;margin-bottom:6px}h1{font:700 clamp(24px,3vw,30px) var(--serif);letter-spacing:-.01em;margin:0 0 4px;color:var(--charcoal)}h2{font:700 18px var(--serif);color:var(--charcoal);margin:0 0 17px}h3{font:700 15px var(--serif);margin:0 0 8px;color:var(--accent)}.muted{color:var(--muted)}.pill{border:0;background:var(--charcoal);padding:7px 12px;border-radius:0;color:#fff;font-size:10px;font-weight:700;letter-spacing:.16em}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.card,.panel{background:var(--surface);border:0;border-radius:0;padding:22px;margin-bottom:16px}.panel{border-top:3px solid var(--accent)}.metric{font:700 31px var(--serif);margin-top:8px;color:var(--accent)}.metric-label{color:var(--charcoal);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.cards .card{position:relative;overflow:hidden;background:var(--surface-soft)}.cols{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}table{border-collapse:collapse;width:100%;min-width:650px}th,td{text-align:left;padding:12px 12px;border-bottom:1px solid var(--line)}th{font-size:11px;font-weight:700;letter-spacing:.08em;color:#fff;background:var(--accent);border-bottom:0}td{color:var(--ink);background:#fff}tbody tr:nth-child(even) td{background:var(--surface)}tbody tr:hover td{background:var(--accent-soft)}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:0}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.hidden{display:none!important}.bar{height:8px;background:#dedede;border-radius:0;overflow:hidden;margin-top:8px}.bar span{display:block;height:100%;background:var(--accent);border-radius:0}.subject{margin:15px 0}.subjecthead{display:flex;justify-content:space-between;gap:12px;font-size:14px}.tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:0;background:var(--charcoal);color:#fff}.fail{background:var(--danger-soft);color:var(--danger)}.notice{padding:12px 14px;background:var(--surface-soft);border:0;border-left:3px solid var(--accent);border-radius:0;color:var(--ink);margin:12px 0;font-size:13px}.resultpaper{background:#fff;color:var(--ink);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:0;padding:clamp(20px,4vw,38px)}.resultpaper h2,.resultpaper h3{color:var(--accent)}.resultpaper h2{color:var(--charcoal)}.resultpaper table{min-width:0}.resultpaper th{color:#fff}.resultpaper td{border-color:var(--line);color:var(--ink)}.resultpaper .muted{color:var(--muted)}footer{text-align:right;color:var(--muted);padding:22px 4px 8px;margin-top:10px;border-top:1px solid var(--line);font-size:11px;letter-spacing:.04em}
+@media(max-width:1000px){.app{grid-template-columns:1fr}.side{position:relative;height:auto;padding:14px 18px}.brand{padding:3px 5px}.side .notice{margin-top:13px}nav{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:15px}.cards{grid-template-columns:repeat(2,1fr)}main{padding:24px 20px}.cols{grid-template-columns:1fr}}
+@media(max-width:620px){nav{grid-template-columns:repeat(2,minmax(0,1fr))}nav button{font-size:12px;padding:9px}.formgrid,.cols{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card,.panel{padding:15px}.metric{font-size:24px}main{padding:18px 13px}.top{margin-bottom:18px}}
+@media print{body{background:white}.side,.top,.no-print,footer{display:none!important}.app{display:block}main{padding:0}.resultpaper{display:block!important;border-top:0;border:0}.panel:not(.printable){display:none!important}.panel.printable{background:#fff;border:0;padding:0}th{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head>
+<body><div class="app">
+<aside class="side"><div class="brand">SMART RESULT PRO<small>ACADEMIC MANAGEMENT</small></div>
+<nav id="nav">
+<button class="active" data-page="overview">▦ Overview</button><button data-page="students">♙ Students</button>
+<button data-page="courses">▤ Course Management</button><button data-page="results">✎ Enter Results</button>
+<button data-page="transcript">▣ Transcript</button><button data-page="leaderboard">♛ Leaderboard</button>
+<button data-page="analytics">◫ Analytics</button><button data-page="settings">⚙ Settings</button>
+</nav><div class="notice">Demo mode · Data is stored in this browser.</div></aside>
+<main><div class="top"><div><h1 id="pageTitle">Overview</h1><div class="muted">Multi-department academic examination system</div></div><span class="pill">● SYSTEM READY</span></div>
+<section id="overview" class="page">
+<div class="cards"><div class="card"><div class="metric-label">Registered Students</div><div class="metric" id="mStudents">0</div></div><div class="card"><div class="metric-label">Results Recorded</div><div class="metric" id="mResults">0</div></div><div class="card"><div class="metric-label">Overall Average</div><div class="metric" id="mAverage">—</div></div><div class="card"><div class="metric-label">Pass Rate</div><div class="metric" id="mPass">—</div></div></div>
+<div class="cols"><div class="panel"><h2>Quick student registration</h2><div class="formgrid"><div><label>Full name</label><input id="qName"></div><div><label>Registration / roll number</label><input id="qRoll"></div><div><label>Department</label><select id="qDept"></select></div><div><label>Batch / session</label><input id="qBatch" value="2026-2030"></div></div><div class="actions"><button onclick="quickAdd()">Add student</button></div></div>
+<div class="panel"><h2>System coverage</h2><div class="metric">7 Departments</div><p class="muted">8 semesters per department · Editable sample curricula · Credit-weighted GPA</p><p class="muted">Curricula are illustrative and should be replaced with your university's official course outlines.</p></div></div>
+<div class="panel"><h2>Recent students</h2><div class="tablewrap"><table><thead><tr><th>Name</th><th>Roll</th><th>Department</th><th>Semester</th></tr></thead><tbody id="recent"></tbody></table></div></div>
+</section>
+<section id="students" class="page hidden"><div class="panel"><h2>Student records</h2><div class="formgrid"><div><label>Student name</label><input id="sName"></div><div><label>Roll / registration number</label><input id="sRoll"></div><div><label>Department</label><select id="sDept"></select></div><div><label>Batch / academic session</label><input id="sBatch" placeholder="2026-2030"></div></div><div class="actions"><button onclick="saveStudent()">Save student</button><button class="secondary" onclick="clearStudentForm()">Clear</button></div></div><div class="panel"><input id="studentSearch" placeholder="Search name, roll or department" oninput="renderStudents()"><div class="tablewrap"><table><thead><tr><th>Name</th><th>Roll</th><th>Department</th><th>Batch</th><th>Actions</th></tr></thead><tbody id="studentRows"></tbody></table></div></div></section>
+<section id="courses" class="page hidden"><div class="panel"><h2>Curriculum manager</h2><div class="formgrid"><div><label>Department</label><select id="cDept" onchange="renderCourses()"></select></div><div><label>Semester</label><select id="cSem" onchange="renderCourses()"></select></div></div><div class="tablewrap"><table><thead><tr><th>Code</th><th>Course</th><th>Credits</th><th>Max marks</th><th>Pass marks</th><th>Action</th></tr></thead><tbody id="courseRows"></tbody></table></div><h3 style="margin-top:18px">Add a course</h3><div class="formgrid"><div><label>Course code</label><input id="newCode"></div><div><label>Course name</label><input id="newCourse"></div><div><label>Credit hours</label><input id="newCredits" type="number" min="1" max="6" value="3"></div><div><label>Maximum marks</label><input id="newMax" type="number" value="100"></div><div><label>Passing marks</label><input id="newPass" type="number" value="50"></div></div><div class="actions"><button onclick="addCourse()">Add course</button><button class="secondary" onclick="restoreCurriculum()">Restore sample curriculum</button></div></div></section>
+<section id="results" class="page hidden"><div class="panel"><h2>Enter semester marks</h2><div class="formgrid"><div><label>Student</label><select id="rStudent" onchange="loadResultForm()"></select></div><div><label>Semester</label><select id="rSem" onchange="loadResultForm()"></select></div></div><div id="markFields"></div><div class="actions"><button onclick="saveResult()">Calculate & save result</button></div></div><div id="resultPreview"></div></section>
+<section id="transcript" class="page hidden"><div class="panel no-print"><h2>Academic transcript</h2><label>Select student</label><select id="tStudent" onchange="renderTranscript()"></select></div><div id="transcriptContent"></div></section>
+<section id="leaderboard" class="page hidden"><div class="panel"><h2>Department leaderboard</h2><div class="formgrid"><div><label>Department</label><select id="lDept" onchange="renderLeaderboard()"></select></div><div><label>Semester</label><select id="lSem" onchange="renderLeaderboard()"></select></div></div><div class="tablewrap"><table><thead><tr><th>Rank</th><th>Student</th><th>Roll</th><th>GPA</th><th>Percentage</th></tr></thead><tbody id="leaderRows"></tbody></table></div></div></section>
+<section id="analytics" class="page hidden"><div class="cards"><div class="card"><div class="metric-label">Total students</div><div class="metric" id="aTotal">0</div></div><div class="card"><div class="metric-label">Average percentage</div><div class="metric" id="aAvg">—</div></div><div class="card"><div class="metric-label">Highest percentage</div><div class="metric" id="aHigh">—</div></div><div class="card"><div class="metric-label">Failed results</div><div class="metric" id="aFail">0</div></div></div><div class="panel"><h2>Department breakdown</h2><div id="deptBreakdown"></div></div></section>
+<section id="settings" class="page hidden"><div class="panel"><h2>System settings</h2><p class="muted">Configure the institution label and grading policy used for new calculations.</p><label>University / institute name</label><input id="uniName" value="YOUR UNIVERSITY NAME"><label>Passing threshold note</label><p class="muted">Course pass marks are configured individually in Course Management. GPA uses the grade-point scale below.</p><div class="notice">Grade scale: A 90–100 = 4.0; B 80–89 = 3.5; C 70–79 = 3.0; D 60–69 = 2.5; E 50–59 = 2.0; F below 50 = 0.0. Configure to match official regulations.</div><div class="actions"><button onclick="saveSettings()">Save settings</button><button class="secondary" onclick="exportBackup()">Download JSON backup</button><button class="secondary" onclick="document.getElementById('backupFile').click()">Restore JSON backup</button><input id="backupFile" type="file" accept=".json" class="hidden" onchange="importBackup(event)"><button class="danger" onclick="resetData()">Delete all local data</button></div></div></section>
+<footer>SMART RESULT PRO · Programming Fundamentals Final Project · Demonstration software</footer>
+</main></div>
+<script>
+const DEFAULT_CURRICULUM = {
+  "Cyber Security": {
+    "1": [
+      {
+        "code": "CS101",
+        "name": "Programming Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS102",
+        "name": "Applied Physics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS103",
+        "name": "Calculus & Analytical Geometry",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS104",
+        "name": "ICT",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS105",
+        "name": "Functional English",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "2": [
+      {
+        "code": "CS201",
+        "name": "Object Oriented Programming",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS202",
+        "name": "Discrete Structures",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS203",
+        "name": "Digital Logic Design",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS204",
+        "name": "Linear Algebra",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS205",
+        "name": "Communication Skills",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "3": [
+      {
+        "code": "CS301",
+        "name": "Data Structures & Algorithms",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS302",
+        "name": "Database Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS303",
+        "name": "Computer Organization",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS304",
+        "name": "Probability & Statistics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS305",
+        "name": "Technical Writing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "4": [
+      {
+        "code": "CS401",
+        "name": "Operating Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS402",
+        "name": "Computer Networks",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS403",
+        "name": "Software Engineering",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS404",
+        "name": "Theory of Automata",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS405",
+        "name": "Information Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "5": [
+      {
+        "code": "CS501",
+        "name": "Network Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS502",
+        "name": "Cryptography",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS503",
+        "name": "Web Application Development",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS504",
+        "name": "Artificial Intelligence",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS505",
+        "name": "Cyber Security Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "6": [
+      {
+        "code": "CS601",
+        "name": "Ethical Hacking",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS602",
+        "name": "Digital Forensics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS603",
+        "name": "Secure Software Development",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS604",
+        "name": "Cloud Computing Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS605",
+        "name": "Cyber Risk Management",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "7": [
+      {
+        "code": "CS701",
+        "name": "Penetration Testing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS702",
+        "name": "Incident Response",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS703",
+        "name": "Malware Analysis",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS704",
+        "name": "Security Operations",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS705",
+        "name": "Final Year Project I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "8": [
+      {
+        "code": "CS801",
+        "name": "Advanced Cyber Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS802",
+        "name": "Digital Investigation",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS803",
+        "name": "Governance Risk & Compliance",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS804",
+        "name": "Cyber Security Research",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS805",
+        "name": "Final Year Project II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ]
+  },
+  "Computer Science": {
+    "1": [
+      {
+        "code": "CS101",
+        "name": "Programming Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS102",
+        "name": "Calculus I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS103",
+        "name": "Applied Physics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS104",
+        "name": "ICT",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS105",
+        "name": "English Composition",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "2": [
+      {
+        "code": "CS201",
+        "name": "Object Oriented Programming",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS202",
+        "name": "Discrete Mathematics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS203",
+        "name": "Linear Algebra",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS204",
+        "name": "Digital Logic Design",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS205",
+        "name": "Communication Skills",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "3": [
+      {
+        "code": "CS301",
+        "name": "Data Structures",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS302",
+        "name": "Database Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS303",
+        "name": "Probability & Statistics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS304",
+        "name": "Computer Organization",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS305",
+        "name": "Technical Writing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "4": [
+      {
+        "code": "CS401",
+        "name": "Algorithms",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS402",
+        "name": "Operating Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS403",
+        "name": "Computer Networks",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS404",
+        "name": "Software Engineering",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS405",
+        "name": "Theory of Automata",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "5": [
+      {
+        "code": "CS501",
+        "name": "Artificial Intelligence",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS502",
+        "name": "Compiler Construction",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS503",
+        "name": "Web Engineering",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS504",
+        "name": "Computer Architecture",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS505",
+        "name": "Numerical Computing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "6": [
+      {
+        "code": "CS601",
+        "name": "Machine Learning",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS602",
+        "name": "Distributed Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS603",
+        "name": "Information Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS604",
+        "name": "Human Computer Interaction",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS605",
+        "name": "Professional Practices",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "7": [
+      {
+        "code": "CS701",
+        "name": "Cloud Computing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS702",
+        "name": "Mobile Application Development",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS703",
+        "name": "Computer Vision",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS704",
+        "name": "Final Year Project I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS705",
+        "name": "Elective I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "8": [
+      {
+        "code": "CS801",
+        "name": "Advanced Computing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS802",
+        "name": "Final Year Project II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS803",
+        "name": "Professional Ethics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS804",
+        "name": "Elective II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CS805",
+        "name": "Elective III",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ]
+  },
+  "Artificial Intelligence": {
+    "1": [
+      {
+        "code": "AI101",
+        "name": "Programming Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI102",
+        "name": "Calculus I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI103",
+        "name": "Linear Algebra",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI104",
+        "name": "ICT",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI105",
+        "name": "English Composition",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "2": [
+      {
+        "code": "AI201",
+        "name": "Object Oriented Programming",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI202",
+        "name": "Discrete Mathematics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI203",
+        "name": "Probability & Statistics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI204",
+        "name": "Digital Logic",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI205",
+        "name": "Communication Skills",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "3": [
+      {
+        "code": "AI301",
+        "name": "Data Structures & Algorithms",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI302",
+        "name": "Database Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI303",
+        "name": "Numerical Methods",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI304",
+        "name": "Computer Organization",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI305",
+        "name": "Introduction to AI",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "4": [
+      {
+        "code": "AI401",
+        "name": "Machine Learning",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI402",
+        "name": "Operating Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI403",
+        "name": "Data Mining",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI404",
+        "name": "Computer Networks",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI405",
+        "name": "Software Engineering",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "5": [
+      {
+        "code": "AI501",
+        "name": "Deep Learning",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI502",
+        "name": "Natural Language Processing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI503",
+        "name": "Computer Vision",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI504",
+        "name": "Optimization Methods",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI505",
+        "name": "AI Ethics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "6": [
+      {
+        "code": "AI601",
+        "name": "Reinforcement Learning",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI602",
+        "name": "Big Data Analytics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI603",
+        "name": "Neural Networks",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI604",
+        "name": "Cloud Computing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI605",
+        "name": "Research Methods",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "7": [
+      {
+        "code": "AI701",
+        "name": "Robotics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI702",
+        "name": "Intelligent Agents",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI703",
+        "name": "AI Project I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI704",
+        "name": "MLOps",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI705",
+        "name": "Elective I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "8": [
+      {
+        "code": "AI801",
+        "name": "AI Project II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI802",
+        "name": "Responsible AI",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI803",
+        "name": "Advanced Machine Learning",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI804",
+        "name": "Elective II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "AI805",
+        "name": "Professional Practices",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ]
+  },
+  "Data Science": {
+    "1": [
+      {
+        "code": "DS101",
+        "name": "Programming Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS102",
+        "name": "Calculus I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS103",
+        "name": "Linear Algebra",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS104",
+        "name": "ICT",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS105",
+        "name": "English Composition",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "2": [
+      {
+        "code": "DS201",
+        "name": "Object Oriented Programming",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS202",
+        "name": "Discrete Mathematics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS203",
+        "name": "Probability & Statistics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS204",
+        "name": "Database Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS205",
+        "name": "Communication Skills",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "3": [
+      {
+        "code": "DS301",
+        "name": "Data Structures",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS302",
+        "name": "Statistical Methods",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS303",
+        "name": "Data Management",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS304",
+        "name": "Data Visualization",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS305",
+        "name": "Technical Writing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "4": [
+      {
+        "code": "DS401",
+        "name": "Machine Learning",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS402",
+        "name": "Data Warehousing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS403",
+        "name": "Algorithms",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS404",
+        "name": "Operating Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS405",
+        "name": "Regression Analysis",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "5": [
+      {
+        "code": "DS501",
+        "name": "Big Data Technologies",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS502",
+        "name": "Data Mining",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS503",
+        "name": "Predictive Analytics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS504",
+        "name": "Cloud Computing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS505",
+        "name": "Research Methods",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "6": [
+      {
+        "code": "DS601",
+        "name": "Deep Learning",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS602",
+        "name": "Time Series Analysis",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS603",
+        "name": "Natural Language Processing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS604",
+        "name": "Business Intelligence",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS605",
+        "name": "Data Governance",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "7": [
+      {
+        "code": "DS701",
+        "name": "Applied Data Science",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS702",
+        "name": "MLOps",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS703",
+        "name": "Data Science Project I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS704",
+        "name": "Advanced Visualization",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS705",
+        "name": "Elective I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "8": [
+      {
+        "code": "DS801",
+        "name": "Data Science Project II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS802",
+        "name": "Ethics & Privacy",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS803",
+        "name": "Advanced Analytics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS804",
+        "name": "Elective II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "DS805",
+        "name": "Professional Practices",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ]
+  },
+  "Software Engineering": {
+    "1": [
+      {
+        "code": "SE101",
+        "name": "Programming Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE102",
+        "name": "Calculus I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE103",
+        "name": "Applied Physics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE104",
+        "name": "ICT",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE105",
+        "name": "English Composition",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "2": [
+      {
+        "code": "SE201",
+        "name": "Object Oriented Programming",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE202",
+        "name": "Discrete Mathematics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE203",
+        "name": "Digital Logic Design",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE204",
+        "name": "Linear Algebra",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE205",
+        "name": "Communication Skills",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "3": [
+      {
+        "code": "SE301",
+        "name": "Data Structures & Algorithms",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE302",
+        "name": "Database Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE303",
+        "name": "Software Requirements",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE304",
+        "name": "Computer Organization",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE305",
+        "name": "Technical Writing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "4": [
+      {
+        "code": "SE401",
+        "name": "Software Design & Architecture",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE402",
+        "name": "Operating Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE403",
+        "name": "Computer Networks",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE404",
+        "name": "Software Testing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE405",
+        "name": "Human Computer Interaction",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "5": [
+      {
+        "code": "SE501",
+        "name": "Web Engineering",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE502",
+        "name": "Mobile App Development",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE503",
+        "name": "Software Quality Assurance",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE504",
+        "name": "Project Management",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE505",
+        "name": "Information Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "6": [
+      {
+        "code": "SE601",
+        "name": "DevOps",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE602",
+        "name": "Cloud Computing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE603",
+        "name": "Software Maintenance",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE604",
+        "name": "UI/UX Engineering",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE605",
+        "name": "Research Methods",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "7": [
+      {
+        "code": "SE701",
+        "name": "Enterprise Software",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE702",
+        "name": "Software Project I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE703",
+        "name": "Secure Coding",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE704",
+        "name": "Elective I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE705",
+        "name": "Professional Practices",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "8": [
+      {
+        "code": "SE801",
+        "name": "Software Project II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE802",
+        "name": "Software Verification",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE803",
+        "name": "Entrepreneurship",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE804",
+        "name": "Elective II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "SE805",
+        "name": "Ethics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ]
+  },
+  "Computer Engineering": {
+    "1": [
+      {
+        "code": "CE101",
+        "name": "Programming Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE102",
+        "name": "Calculus I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE103",
+        "name": "Applied Physics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE104",
+        "name": "Electrical Circuits",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE105",
+        "name": "ICT",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "2": [
+      {
+        "code": "CE201",
+        "name": "Object Oriented Programming",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE202",
+        "name": "Linear Algebra",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE203",
+        "name": "Digital Logic Design",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE204",
+        "name": "Circuit Analysis",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE205",
+        "name": "Communication Skills",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "3": [
+      {
+        "code": "CE301",
+        "name": "Data Structures",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE302",
+        "name": "Electronics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE303",
+        "name": "Computer Organization",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE304",
+        "name": "Signals & Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE305",
+        "name": "Probability & Statistics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "4": [
+      {
+        "code": "CE401",
+        "name": "Microprocessors",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE402",
+        "name": "Operating Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE403",
+        "name": "Computer Networks",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE404",
+        "name": "Embedded Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE405",
+        "name": "Engineering Mathematics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "5": [
+      {
+        "code": "CE501",
+        "name": "Computer Architecture",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE502",
+        "name": "Control Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE503",
+        "name": "VLSI Design",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE504",
+        "name": "Database Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE505",
+        "name": "Software Engineering",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "6": [
+      {
+        "code": "CE601",
+        "name": "IoT Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE602",
+        "name": "Real-Time Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE603",
+        "name": "Digital Signal Processing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE604",
+        "name": "Cyber Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE605",
+        "name": "Research Methods",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "7": [
+      {
+        "code": "CE701",
+        "name": "Robotics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE702",
+        "name": "Hardware Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE703",
+        "name": "Engineering Project I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE704",
+        "name": "Elective I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE705",
+        "name": "Professional Practices",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "8": [
+      {
+        "code": "CE801",
+        "name": "Engineering Project II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE802",
+        "name": "Advanced Embedded Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE803",
+        "name": "Entrepreneurship",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE804",
+        "name": "Elective II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "CE805",
+        "name": "Ethics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ]
+  },
+  "Information Technology": {
+    "1": [
+      {
+        "code": "IT101",
+        "name": "Programming Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT102",
+        "name": "Calculus I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT103",
+        "name": "Applied Physics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT104",
+        "name": "ICT",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT105",
+        "name": "English Composition",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "2": [
+      {
+        "code": "IT201",
+        "name": "Object Oriented Programming",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT202",
+        "name": "Discrete Mathematics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT203",
+        "name": "Database Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT204",
+        "name": "Networking Fundamentals",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT205",
+        "name": "Communication Skills",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "3": [
+      {
+        "code": "IT301",
+        "name": "Data Structures",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT302",
+        "name": "Web Development",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT303",
+        "name": "Systems Analysis",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT304",
+        "name": "Computer Organization",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT305",
+        "name": "Probability & Statistics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "4": [
+      {
+        "code": "IT401",
+        "name": "Operating Systems",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT402",
+        "name": "Network Administration",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT403",
+        "name": "Software Engineering",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT404",
+        "name": "Cyber Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT405",
+        "name": "Technical Writing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "5": [
+      {
+        "code": "IT501",
+        "name": "Cloud Computing",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT502",
+        "name": "IT Service Management",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT503",
+        "name": "Mobile Development",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT504",
+        "name": "Database Administration",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT505",
+        "name": "Human Computer Interaction",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "6": [
+      {
+        "code": "IT601",
+        "name": "Network Security",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT602",
+        "name": "Systems Integration",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT603",
+        "name": "Data Analytics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT604",
+        "name": "Project Management",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT605",
+        "name": "Research Methods",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "7": [
+      {
+        "code": "IT701",
+        "name": "Enterprise IT",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT702",
+        "name": "IT Governance",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT703",
+        "name": "IT Project I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT704",
+        "name": "Elective I",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT705",
+        "name": "Professional Practices",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ],
+    "8": [
+      {
+        "code": "IT801",
+        "name": "IT Project II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT802",
+        "name": "Emerging Technologies",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT803",
+        "name": "Disaster Recovery",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT804",
+        "name": "Elective II",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      },
+      {
+        "code": "IT805",
+        "name": "Ethics",
+        "credits": 3,
+        "maxMarks": 100,
+        "passMarks": 50
+      }
+    ]
+  }
+};
+const DEPTS=Object.keys(DEFAULT_CURRICULUM), SEMS=8;
+let curriculum=load("srp_courses",DEFAULT_CURRICULUM), students=load("srp_students",[]), results=load("srp_results",[]), settings=load("srp_settings",{university:"YOUR UNIVERSITY NAME"});
+function load(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}
+function persist(){try{localStorage.setItem("srp_courses",JSON.stringify(curriculum));localStorage.setItem("srp_students",JSON.stringify(students));localStorage.setItem("srp_results",JSON.stringify(results));localStorage.setItem("srp_settings",JSON.stringify(settings));return true}catch(err){alert("Could not save data in this browser. Export a backup and check available storage space.");return false}}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function options(el,arr,first){let previous=el.value;el.innerHTML=(first?'<option value="">'+esc(first)+'</option>':'')+arr.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");if(arr.includes(previous))el.value=previous;else if(first)el.value=""}
+function fillSelects(){["qDept","sDept","cDept","lDept"].forEach(id=>options(document.getElementById(id),DEPTS));["cSem","rSem","lSem"].forEach(id=>options(document.getElementById(id),Array.from({length:8},(_,i)=>String(i+1))));let studentOptions=students.map(s=>s.roll+" — "+s.name);options(document.getElementById("rStudent"),studentOptions,"Select student");options(document.getElementById("tStudent"),studentOptions,"Select student")}
+function page(id){document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));document.getElementById("pageTitle").textContent=document.querySelector(`[data-page="${id}"]`).textContent.trim();refresh()}
+document.getElementById("nav").addEventListener("click",e=>{let b=e.target.closest("button[data-page]");if(b)page(b.dataset.page)});
+function quickAdd(){document.getElementById("sName").value=document.getElementById("qName").value;document.getElementById("sRoll").value=document.getElementById("qRoll").value;document.getElementById("sDept").value=document.getElementById("qDept").value;document.getElementById("sBatch").value=document.getElementById("qBatch").value;saveStudent()}
+function saveStudent(){let name=document.getElementById("sName").value.trim(),roll=document.getElementById("sRoll").value.trim(),dept=document.getElementById("sDept").value,batch=document.getElementById("sBatch").value.trim();if(!name||!roll||!dept){alert("Complete name, roll and department.");return}if(students.some(s=>s.roll.toLowerCase()===roll.toLowerCase()&&s.roll!==editingRoll)){alert("That roll number already exists.");return}if(editingRoll){let s=students.find(x=>x.roll===editingRoll);if(!s){alert("Student record could not be found. Refresh and try again.");return}let oldRoll=s.roll;Object.assign(s,{name,roll,dept,batch});if(oldRoll!==roll)results.forEach(r=>{if(r.roll===oldRoll)r.roll=roll});results.forEach(r=>{if(r.roll===roll)r.dept=dept});editingRoll=null}else students.push({name,roll,dept,batch});persist();clearStudentForm();refresh()}
+let editingRoll=null;
+function clearStudentForm(){["sName","sRoll","sBatch"].forEach(id=>document.getElementById(id).value="");editingRoll=null}
+function editStudent(roll){let s=students.find(x=>x.roll===roll);if(!s)return;editingRoll=roll;document.getElementById("sName").value=s.name;document.getElementById("sRoll").value=s.roll;document.getElementById("sDept").value=s.dept;document.getElementById("sBatch").value=s.batch;page("students")}
+function deleteStudent(roll){if(!confirm("Delete this student and their results?"))return;students=students.filter(s=>s.roll!==roll);results=results.filter(r=>r.roll!==roll);persist();refresh()}
+function renderStudents(){let q=(document.getElementById("studentSearch").value||"").toLowerCase();document.getElementById("studentRows").innerHTML=students.filter(s=>(s.name+s.roll+s.dept).toLowerCase().includes(q)).map(s=>`<tr><td>${esc(s.name)}</td><td>${esc(s.roll)}</td><td>${esc(s.dept)}</td><td>${esc(s.batch)}</td><td><button class="secondary" data-action="edit" data-roll="${esc(s.roll)}">Edit</button> <button class="danger" data-action="delete" data-roll="${esc(s.roll)}">Delete</button></td></tr>`).join("")||'<tr><td colspan="5">No students found.</td></tr>'}
+document.getElementById("studentRows").addEventListener("click",e=>{let b=e.target.closest("button[data-action]");if(!b)return;let roll=b.dataset.roll;if(b.dataset.action==="edit")editStudent(roll);if(b.dataset.action==="delete")deleteStudent(roll)});
+function renderCourses(){let d=document.getElementById("cDept").value,sem=document.getElementById("cSem").value;if(!d||!sem)return;let list=curriculum[d][sem];document.getElementById("courseRows").innerHTML=list.map((c,i)=>`<tr><td>${esc(c.code)}</td><td>${esc(c.name)}</td><td>${c.credits}</td><td>${c.maxMarks}</td><td>${c.passMarks}</td><td><button class="danger" onclick="removeCourse(${i})">Remove</button></td></tr>`).join("")}
+function addCourse(){let d=document.getElementById("cDept").value,sem=document.getElementById("cSem").value,code=document.getElementById("newCode").value.trim(),name=document.getElementById("newCourse").value.trim(),credits=+document.getElementById("newCredits").value,maxMarks=+document.getElementById("newMax").value,passMarks=+document.getElementById("newPass").value;if(!d||!sem||!code||!name||credits<1||credits>6||maxMarks<=0||passMarks<0||passMarks>maxMarks){alert("Enter valid course details.");return}curriculum[d][sem].push({code,name,credits,maxMarks,passMarks});persist();renderCourses()}
+function removeCourse(i){let d=document.getElementById("cDept").value,sem=document.getElementById("cSem").value;if(curriculum[d][sem].length<=1){alert("Keep at least one course in a semester.");return}if(confirm("Remove this course?")){curriculum[d][sem].splice(i,1);persist();renderCourses()}}
+function restoreCurriculum(){if(confirm("Restore all sample courses? This replaces curriculum edits.")){curriculum=JSON.parse(JSON.stringify(DEFAULT_CURRICULUM));persist();renderCourses()}}
+function loadResultForm(){let opt=document.getElementById("rStudent").value,roll=opt.split(" — ")[0],s=students.find(x=>x.roll===roll),sem=document.getElementById("rSem").value;if(!s||!sem){document.getElementById("markFields").innerHTML="";return}let courses=curriculum[s.dept][sem],existing=results.find(r=>r.roll===roll&&r.semester===Number(sem));document.getElementById("markFields").innerHTML=courses.map((c,i)=>{let previous=existing?.entries?.find(e=>e.code===c.code);return `<label>${esc(c.name)} · ${c.credits} credits · /${c.maxMarks}</label><input class="markInput" data-index="${i}" type="number" min="0" max="${c.maxMarks}" value="${previous?esc(previous.marks):""}" placeholder="Obtained marks">`}).join("");}
+function grade(mark,max){let p=mark/max*100;if(p>=90)return ["A",4];if(p>=80)return ["B",3.5];if(p>=70)return ["C",3];if(p>=60)return ["D",2.5];if(p>=50)return ["E",2];return ["F",0]}
+function saveResult(){let opt=document.getElementById("rStudent").value,roll=opt.split(" — ")[0],s=students.find(x=>x.roll===roll),sem=document.getElementById("rSem").value;if(!s||!sem){alert("Select a student and semester.");return}let courses=curriculum[s.dept][sem],inputs=[...document.querySelectorAll(".markInput")];if(!courses.length){alert("No courses are configured for this semester. Add courses before entering results.");return}if(inputs.length!==courses.length){alert("No course fields loaded.");return}let marks=inputs.map(x=>x.value===""?NaN:Number(x.value));if(marks.some((m,i)=>!Number.isFinite(m)||m<0||m>courses[i].maxMarks)){alert("Enter valid marks for every course.");return}let totalCredits=courses.reduce((a,c)=>a+c.credits,0),weighted=0,obtained=0,max=0,passed=true;let entries=courses.map((c,i)=>{let [g,gp]=grade(marks[i],c.maxMarks);weighted+=gp*c.credits;obtained+=marks[i];max+=c.maxMarks;if(marks[i]<c.passMarks)passed=false;return {code:c.code,name:c.name,credits:c.credits,marks:marks[i],max:c.maxMarks,grade:g,points:gp,pass:marks[i]>=c.passMarks}});let r={roll,dept:s.dept,semester:+sem,entries,gpa:totalCredits?weighted/totalCredits:0,percentage:max?obtained/max*100:0,passed,date:new Date().toISOString()};let idx=results.findIndex(x=>x.roll===roll&&x.semester===+sem);if(idx>=0)results[idx]=r;else results.push(r);persist();showResult(r,s);refresh()}
+function showResult(r,s){document.getElementById("resultPreview").innerHTML=`<div class="panel printable"><div class="resultpaper"><h2>${esc(settings.university)}</h2><h3>SEMESTER RESULT CARD</h3><p class="muted">SMART RESULT PRO · Academic report</p><hr><p><b>Student:</b> ${esc(s.name)} &nbsp; <b>Roll:</b> ${esc(s.roll)}</p><p><b>Department:</b> ${esc(s.dept)} &nbsp; <b>Batch:</b> ${esc(s.batch)}</p><p><b>Semester:</b> ${r.semester} &nbsp; <b>Date:</b> ${new Date(r.date).toLocaleDateString()}</p><table><thead><tr><th>Course</th><th>Credits</th><th>Marks</th><th>Grade</th><th>Points</th></tr></thead><tbody>${r.entries.map(e=>`<tr><td>${esc(e.name)}</td><td>${e.credits}</td><td>${e.marks}/${e.max}</td><td>${e.grade}</td><td>${e.points.toFixed(1)}</td></tr>`).join("")}</tbody></table><h3 style="margin-top:18px">Semester GPA: ${r.gpa.toFixed(2)} / 4.00</h3><p>Percentage: ${r.percentage.toFixed(2)}%</p><p>Academic status: <b>${r.passed?"PASS":"FAIL"}</b></p><p class="muted">Illustrative grading policy. Not an official university-issued document.</p></div><div class="actions no-print"><button onclick="window.print()">Print result card</button></div></div>`}
+function renderTranscript(){let opt=document.getElementById("tStudent").value,roll=opt.split(" — ")[0],s=students.find(x=>x.roll===roll);if(!s){document.getElementById("transcriptContent").innerHTML="";return}let rs=results.filter(r=>r.roll===roll).sort((a,b)=>a.semester-b.semester),weighted=0,credits=0;rs.forEach(r=>r.entries.forEach(e=>{weighted+=e.points*e.credits;credits+=e.credits}));document.getElementById("transcriptContent").innerHTML=`<div class="panel printable"><div class="resultpaper"><h2>${esc(settings.university)}</h2><h3>ACADEMIC TRANSCRIPT</h3><p><b>${esc(s.name)}</b> · ${esc(s.roll)} · ${esc(s.dept)}</p>${rs.map(r=>`<h3 style="margin-top:20px">Semester ${r.semester} · GPA ${r.gpa.toFixed(2)}</h3><table><thead><tr><th>Course</th><th>Credits</th><th>Marks</th><th>Grade</th></tr></thead><tbody>${r.entries.map(e=>`<tr><td>${esc(e.name)}</td><td>${e.credits}</td><td>${e.marks}/${e.max}</td><td>${e.grade}</td></tr>`).join("")}</tbody></table>`).join("")||"<p>No semester results recorded.</p>"}<h3 style="margin-top:20px">Cumulative GPA: ${credits?(weighted/credits).toFixed(2):"—"} / 4.00</h3><p class="muted">CGPA is calculated from recorded courses and their credit hours.</p></div><div class="actions no-print"><button onclick="window.print()">Print transcript</button></div></div>`}
+function renderLeaderboard(){let d=document.getElementById("lDept").value,sem=+document.getElementById("lSem").value;let rows=results.filter(r=>r.dept===d&&r.semester===sem).sort((a,b)=>b.gpa-a.gpa);document.getElementById("leaderRows").innerHTML=rows.map((r,i)=>{let s=students.find(x=>x.roll===r.roll);return `<tr><td>${i+1}</td><td>${esc(s?.name||"Unknown")}</td><td>${esc(r.roll)}</td><td>${r.gpa.toFixed(2)}</td><td>${r.percentage.toFixed(2)}%</td></tr>`}).join("")||'<tr><td colspan="5">No results for this selection.</td></tr>'}
+function renderAnalytics(){let avg=results.length?results.reduce((a,r)=>a+r.percentage,0)/results.length:0,high=results.length?Math.max(...results.map(r=>r.percentage)):0,fail=results.filter(r=>!r.passed).length;document.getElementById("aTotal").textContent=students.length;document.getElementById("aAvg").textContent=results.length?avg.toFixed(1)+"%":"—";document.getElementById("aHigh").textContent=results.length?high.toFixed(1)+"%":"—";document.getElementById("aFail").textContent=fail;document.getElementById("deptBreakdown").innerHTML=DEPTS.map(d=>{let arr=results.filter(r=>r.dept===d),v=arr.length?arr.reduce((a,r)=>a+r.percentage,0)/arr.length:0;return `<div class="subject"><div class="subjecthead"><b>${esc(d)}</b><span>${arr.length?v.toFixed(1)+"%":"No results"}</span></div><div class="bar"><span style="width:${v}%"></span></div></div>`}).join("")}
+function renderOverview(){document.getElementById("mStudents").textContent=students.length;document.getElementById("mResults").textContent=results.length;document.getElementById("mAverage").textContent=results.length?(results.reduce((a,r)=>a+r.percentage,0)/results.length).toFixed(1)+"%":"—";document.getElementById("mPass").textContent=results.length?(100*results.filter(r=>r.passed).length/results.length).toFixed(0)+"%":"—";document.getElementById("recent").innerHTML=students.slice(-6).reverse().map(s=>`<tr><td>${esc(s.name)}</td><td>${esc(s.roll)}</td><td>${esc(s.dept)}</td><td>${results.filter(r=>r.roll===s.roll).length||"—"}</td></tr>`).join("")||'<tr><td colspan="4">No students registered.</td></tr>'}
+function refresh(){fillSelects();renderOverview();renderStudents();renderCourses();renderAnalytics();renderLeaderboard();renderTranscript();document.getElementById("uniName").value=settings.university}
+function saveSettings(){settings.university=document.getElementById("uniName").value.trim()||"YOUR UNIVERSITY NAME";persist();alert("Settings saved.");}
+function exportBackup(){let blob=new Blob([JSON.stringify({curriculum,students,results,settings},null,2)],{type:"application/json"}),a=document.createElement("a"),u=URL.createObjectURL(blob);a.href=u;a.download="SmartResultPro-backup.json";a.click();URL.revokeObjectURL(u)}
+function importBackup(e){let f=e.target.files[0];if(!f)return;let reader=new FileReader();reader.onload=()=>{try{let x=JSON.parse(reader.result);if(!x||!x.curriculum||!Array.isArray(x.students)||!Array.isArray(x.results)||!x.settings||typeof x.settings.university!=="string")throw Error("Invalid structure");if(!x.students.every(s=>s&&typeof s.name==="string"&&typeof s.roll==="string"&&DEPTS.includes(s.dept))||!x.results.every(r=>r&&typeof r.roll==="string"&&Number.isInteger(r.semester)&&r.semester>=1&&r.semester<=8&&Array.isArray(r.entries)&&Number.isFinite(r.gpa)&&Number.isFinite(r.percentage)))throw Error("Invalid records");for(const d of DEPTS){if(!x.curriculum[d])throw Error("Missing department");for(let sem=1;sem<=8;sem++){if(!Array.isArray(x.curriculum[d][sem])||!x.curriculum[d][sem].every(c=>c&&typeof c.code==="string"&&typeof c.name==="string"&&Number.isFinite(c.credits)&&c.credits>0&&Number.isFinite(c.maxMarks)&&c.maxMarks>0&&Number.isFinite(c.passMarks)&&c.passMarks>=0&&c.passMarks<=c.maxMarks))throw Error("Invalid curriculum")}}if(new Set(x.students.map(s=>s.roll.toLowerCase())).size!==x.students.length)throw Error("Duplicate rolls");if(!confirm("Restore this backup? Current browser data will be replaced."))return;curriculum=x.curriculum;students=x.students;results=x.results;settings=x.settings;persist();refresh();alert("Backup restored.")}catch(err){alert("Backup could not be restored. The file is invalid or incompatible.")}finally{e.target.value=""}};reader.readAsText(f)}
+function resetData(){if(!confirm("Permanently clear all SMART RESULT PRO browser data?"))return;students=[];results=[];curriculum=JSON.parse(JSON.stringify(DEFAULT_CURRICULUM));persist();refresh()}
+fillSelects();refresh();
+</script></body></html>
